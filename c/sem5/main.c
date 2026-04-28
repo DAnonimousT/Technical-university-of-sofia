@@ -143,12 +143,20 @@ void Zad4(){
 		return;
 	}
 	char line[100];
-	fread(&line, sizeof(line), 1, fp);
+	fgets(line, sizeof(line), fp);
 	printf("%s\n", line);
-	fclose(fp);
-	
+	int key = 0;
+	printf("Key: ");
+	scanf("%d", &key);
 	char newFile[100];
+	printf("File name: ");
 	scanf("%s", newFile);
+
+	for	(int i = 0; i < strlen(line); i++)
+	{
+		line[i] = line[i] + key;
+	}
+
 	FILE *newFp;
 	newFp = fopen(newFile, "w");
 	if (newFp == NULL)
@@ -156,7 +164,8 @@ void Zad4(){
 		printf("Could not open file\n");
 		return;
 	}
-	fwrite(&line, sizeof(line), 1, newFp);
+	fwrite(&line, 1, sizeof(line), newFp);
+	fclose(fp);
 	fclose(newFp);
 
 }
