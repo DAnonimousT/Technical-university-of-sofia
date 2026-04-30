@@ -153,7 +153,7 @@ void Zad4(){
 	scanf("%s", newFile);
 
 	for	(int i = 0; i < strlen(line); i++)
-	{
+	{	
 		line[i] = line[i] + key;
 	}
 
