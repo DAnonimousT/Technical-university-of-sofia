@@ -21,12 +21,12 @@ public class Main{
         case 2:
           money = scanner.nextDouble();
           PaymentMethod payPal = new PayPal();
-          payPal.processPayment(money);
+          payPal.pay(money);
         break;
         case 1:
           money = scanner.nextDouble();
           PaymentMethod card = new CreditCard();
-          card.processPayment(money);
+          card.pay(money);
         break;
       }
     }
