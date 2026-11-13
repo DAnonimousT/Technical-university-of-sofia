@@ -36,13 +36,16 @@ public class Main{
     int choice;
 
     do {
-      System.out.println("\n=== STRING MANU ===");
-      System.out.println("1. Enter a string");
-      System.out.println("2. Change a word in the string");
-      System.out.println("3. Invert ");
-      System.out.println("4. Regex");
-      System.out.println("Choose an option: ");
-
+      System.out.println("""
+                        === STRING MANU ===
+                        1. Enter a string
+                        2. Change a word in the string
+                        3. Invert
+                        4. Get the emails
+                        5. Save file
+                        0. Exit
+                        Choose an option:
+                        """);
       choice = Integer.parseInt(scanner.nextLine());
 
       switch (choice) {
@@ -81,12 +84,7 @@ public class Main{
               outputStream.write(emails.get(i).getBytes());
             }
           }
-        
-
-          
-
-
-          break;
+        break;
         case 5:
           try(BufferedWriter bw = new BufferedWriter(new FileWriter("file.txt"))){
             bw.write(text.toString().replace("[", " ").replace("]", " ").replace(",", " "));
