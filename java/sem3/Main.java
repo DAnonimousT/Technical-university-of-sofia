@@ -10,25 +10,29 @@ public class Main{
   public void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int choose;
+    do{
       System.out.println("""
           Choose payment:
-        1. CredidCard 
+        0. Exit
+        1. CredidCard
         2. PayPal
       """);
-    while((choose = Integer.parseInt(scanner.nextLine())) != 0){
+      choose = Integer.parseInt(scanner.nextLine());
       double money;
+      System.out.println("The amount of money: ");
       switch(choose){
         case 2:
-          money = scanner.nextDouble();
+          money = Double.parseDouble(scanner.nextLine());
           PaymentMethod payPal = new PayPal();
           payPal.pay(money);
         break;
         case 1:
-          money = scanner.nextDouble();
+          money = Double.parseDouble(scanner.nextLine());
           PaymentMethod card = new CreditCard();
           card.pay(money);
         break;
       }
     }
+    while(choose != 0);
   }
 }
