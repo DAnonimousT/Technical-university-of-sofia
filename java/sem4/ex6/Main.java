@@ -20,8 +20,7 @@ public class Main{
     List<Voter> voters = people.stream()
                       .filter(person -> person.getAge() >= 18 && person.getCity() == "Sofia")
                       .map(person -> new Voter(person.getName(), person.getCity(), person.getEgn()))
-                      .toList();
-
+                      .collect(Collectors.toList());
 
     System.out.println("Voter in Sofia: ");
     System.out.println(voters.stream()
